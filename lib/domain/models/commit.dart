@@ -4,6 +4,19 @@ Commit commitFromJson(String str) => Commit.fromJson(json.decode(str));
 
 String commitToJson(Commit data) => json.encode(data.toJson());
 
+class CommitMapper {
+  List<Commit> items = [];
+
+  CommitMapper();
+
+  CommitMapper.fromJsonList(List<dynamic> jsonList) {
+    for (var item in jsonList) {
+      final commit = new Commit.fromJson(item);
+      items.add(commit);
+    }
+  }
+}
+
 class Commit {
   Commit({
     required this.sha,
