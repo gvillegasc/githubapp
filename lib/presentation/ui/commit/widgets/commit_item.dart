@@ -2,6 +2,7 @@ import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
 import 'package:githubapp/core/app_colors.dart';
 import 'package:githubapp/core/responsive.dart';
+import 'package:githubapp/core/utils/commit_date.dart';
 import 'package:githubapp/domain/models/commit.dart';
 
 class CommitItem extends StatelessWidget {
@@ -72,7 +73,7 @@ class CommitItem extends StatelessWidget {
             width: responsive.widthR(20),
             alignment: Alignment.centerRight,
             child: Text(
-              dataa(commit.commit.committer.date),
+              commitDate(commit.commit.committer.date),
               maxLines: 1,
               textAlign: TextAlign.end,
               overflow: TextOverflow.ellipsis,
@@ -85,18 +86,5 @@ class CommitItem extends StatelessWidget {
         ],
       ),
     );
-  }
-
-  String dataa(DateTime commitDate) {
-    final today = DateTime.now();
-    final different = today.difference(commitDate);
-    final differentHours = different.inHours;
-    if (differentHours <= 0) {
-      return '${different.inMinutes} min';
-    } else if (differentHours <= 24) {
-      return '${different.inHours} h';
-    } else {
-      return '${different.inDays} days';
-    }
   }
 }
