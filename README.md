@@ -48,7 +48,7 @@ flutter run
 
 ### Run test
 
-to run the unit tests you must run the following command remember that to run the tests is necessary to install the dependencies
+To run the unit tests you must run the following command remember that to run the tests is necessary to install the dependencies
 
 ```bash
 flutter test

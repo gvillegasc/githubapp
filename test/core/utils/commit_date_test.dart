@@ -9,13 +9,13 @@ void main() {
       expect(value, equals('1 h'));
     });
 
-    test('should be 1 min', () {
+    test('should be 3 min', () {
       final value = commitDate('2021-05-08T17:00:00Z', '2021-05-08T17:03:00Z');
 
       expect(value, equals('3 min'));
     });
 
-    test('should be null', () {
+    test('should be ' ' ', () {
       final value = commitDate('2021-05-08T17:00:00Z', '2021-051-08T17:00:00Z');
 
       expect(value, equals(''));
