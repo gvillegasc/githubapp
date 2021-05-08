@@ -15,8 +15,14 @@ class CommitPage extends StatelessWidget {
         backgroundColor: AppColors.black70,
         body: SafeArea(
           bottom: false,
-          child: CustomScrollView(
-            slivers: [CommitHeader(), CommitList()],
+          child: NotificationListener<OverscrollIndicatorNotification>(
+            onNotification: (OverscrollIndicatorNotification overscroll) {
+              overscroll.disallowGlow();
+              return true;
+            },
+            child: CustomScrollView(
+              slivers: [CommitHeader(), CommitList()],
+            ),
           ),
         ),
       ),
