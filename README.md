@@ -1,16 +1,63 @@
-# githubapp
+# Githubapp
 
-A new Flutter project.
+Githubapp is a mobile application for a technical test on flutter.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Pre-requisites
 
-A few resources to get you started if this is your first Flutter project:
+For run this application you must install [Flutter](https://flutter.dev/) 2.0 or higher.
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+You can know how to install flutter [here](https://flutter.dev/docs/get-started/install)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Installation
+
+Clone the project and next use the command line `flutter` to download the app dependencies
+
+```bash
+# clone the repository
+git clone https://github.com/gvillegasc/githubapp.git
+
+# move to the cloned repository
+cd githupapp
+
+# get dependencies
+flutter pub get
+```
+
+### Usage
+
+To execute the project you have to have an android cell phone or ios emulator and execute the following command.
+
+```bash
+flutter run
+```
+
+### App images
+
+<table>
+    <tr>
+        <th>Commit Page</th>
+        <th>See changes</th>
+    </tr>
+	<tr>
+        <td><img src="./readme-images/commit-page.jpeg" alt="commit-page" width="200"/></td>
+        <td><img src="./readme-images/see-changes.jpeg" alt="see-changes" width="200"/></td>
+	</tr>
+</table>
+
+### Run test
+
+to run the unit tests you must run the following command remember that to run the tests is necessary to install the dependencies
+
+```bash
+flutter test
+```
+
+## Builded with
+
+- [Flutter](https://flutter.dev/) - SDK for develop
+
+## Author
+
+- **Gerardo Villegas** - [gvillegasc](https://github.com/gvillegasc)
