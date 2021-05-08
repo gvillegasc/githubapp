@@ -27,7 +27,7 @@ flutter pub get
 
 ### Usage
 
-Next to download depedencies you have to have an android emulator or ios emulator and execute the following command.
+Next to download dependencies you have to have an android emulator or ios emulator and execute the following command.
 
 ```bash
 flutter run
