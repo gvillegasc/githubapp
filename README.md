@@ -19,7 +19,7 @@ Clone the project and next use the command line `flutter` to download the app de
 git clone https://github.com/gvillegasc/githubapp.git
 
 # move to the cloned repository
-cd githupapp
+cd githubapp
 
 # get dependencies
 flutter pub get
@@ -27,7 +27,7 @@ flutter pub get
 
 ### Usage
 
-To execute the project you have to have an android cell phone or ios emulator and execute the following command.
+Next to download depedencies you have to have an android emulator or ios emulator and execute the following command.
 
 ```bash
 flutter run
