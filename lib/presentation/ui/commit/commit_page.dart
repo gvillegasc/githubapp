@@ -14,6 +14,7 @@ class CommitPage extends StatelessWidget {
       child: Scaffold(
         backgroundColor: AppColors.black70,
         body: SafeArea(
+          bottom: false,
           child: CustomScrollView(
             slivers: [CommitHeader(), CommitList()],
           ),

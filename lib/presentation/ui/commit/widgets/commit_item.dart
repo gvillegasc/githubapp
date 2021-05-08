@@ -38,7 +38,7 @@ class CommitItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Container(
-                  width: responsive.widthR(65),
+                  width: responsive.widthR(70),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [

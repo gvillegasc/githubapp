@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:githubapp/presentation/blocs/commit_bloc.dart';
+import 'package:githubapp/presentation/ui/commit/widgets/commit_error.dart';
 import 'package:githubapp/presentation/ui/commit/widgets/commit_item.dart';
 import 'package:githubapp/presentation/ui/widgets/sliver_loading.dart';
 import 'package:provider/provider.dart';
@@ -27,11 +28,18 @@ class _CommitListState extends State<CommitList> {
           case CommitState.loaded:
             return SliverList(
               delegate: SliverChildBuilderDelegate(
-                  (_, int i) => CommitItem(commit: bloc.commits[i]),
+                  (_, int i) => (i == bloc.commits.length - 1)
+                      ? SafeArea(
+                          top: false,
+                          child: Container(
+                              margin: const EdgeInsets.only(bottom: 30),
+                              child: CommitItem(commit: bloc.commits[i])),
+                        )
+                      : CommitItem(commit: bloc.commits[i]),
                   childCount: bloc.commits.length),
             );
           default:
-            return SliverLoading();
+            return CommitError();
         }
       },
     );

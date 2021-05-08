@@ -18,7 +18,7 @@ void main() {
     test('should be null', () {
       final value = commitDate('2021-05-08T17:00:00Z', '2021-051-08T17:00:00Z');
 
-      expect(value, equals('aa'));
+      expect(value, equals(''));
     });
   });
 }
