@@ -7,6 +7,7 @@ enum CommitState { loading, loaded, errorService }
 
 class CommitBloc extends ChangeNotifier {
   CommitBloc({required this.getCommits});
+
   final GetCommits getCommits;
 
   CommitState? _commitState;
