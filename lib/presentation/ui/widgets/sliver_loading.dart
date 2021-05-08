@@ -3,6 +3,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SliverLoading extends StatelessWidget {
+  SliverLoading({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return SliverFillRemaining(
@@ -13,9 +15,9 @@ class SliverLoading extends StatelessWidget {
               ? CupertinoTheme(
                   data: CupertinoTheme.of(context)
                       .copyWith(brightness: Brightness.dark),
-                  child: CupertinoActivityIndicator(),
+                  child: const CupertinoActivityIndicator(),
                 )
-              : CircularProgressIndicator(),
+              : const CircularProgressIndicator(),
         ),
       ),
     );

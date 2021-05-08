@@ -3,6 +3,8 @@ import 'package:githubapp/core/app_colors.dart';
 import 'package:githubapp/core/responsive.dart';
 
 class CommitError extends StatelessWidget {
+  CommitError({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);

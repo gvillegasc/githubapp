@@ -25,7 +25,7 @@ class RemoteDataSourceImpl implements RemoteDataSource {
 
   @override
   Future<List<Commit>> getCommits() async {
-    final resp = await _apiRequest('/commits');
+    final Response resp = await _apiRequest('/commits');
     try {
       if (resp.statusCode == 200) {
         final decodedData = json.decode(resp.body);

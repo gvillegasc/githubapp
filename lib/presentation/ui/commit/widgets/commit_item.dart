@@ -28,7 +28,7 @@ class CommitItem extends StatelessWidget {
                 : throw 'Could not launch ${commit.htmlUrl}';
           },
           child: Container(
-            margin: EdgeInsets.symmetric(vertical: 1),
+            margin: const EdgeInsets.symmetric(vertical: 1),
             padding: EdgeInsets.symmetric(
                 horizontal: responsive.widthR(5),
                 vertical: responsive.inchR(1)),

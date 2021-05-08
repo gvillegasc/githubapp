@@ -7,6 +7,8 @@ import 'package:githubapp/presentation/ui/commit/widgets/commit_list.dart';
 import 'package:provider/provider.dart';
 
 class CommitPage extends StatelessWidget {
+  CommitPage({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider(

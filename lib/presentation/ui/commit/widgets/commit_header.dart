@@ -4,6 +4,8 @@ import 'package:githubapp/core/app_colors.dart';
 import 'package:githubapp/core/responsive.dart';
 
 class CommitHeader extends StatelessWidget {
+  CommitHeader({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
