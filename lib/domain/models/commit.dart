@@ -198,19 +198,19 @@ class CommitAuthorClass {
 
   String name;
   String email;
-  DateTime date;
+  String date;
 
   factory CommitAuthorClass.fromJson(Map<String, dynamic> json) =>
       CommitAuthorClass(
         name: json["name"],
         email: json["email"],
-        date: DateTime.parse(json["date"]),
+        date: json["date"],
       );
 
   Map<String, dynamic> toJson() => {
         "name": name,
         "email": email,
-        "date": date.toIso8601String(),
+        "date": date,
       };
 }
 

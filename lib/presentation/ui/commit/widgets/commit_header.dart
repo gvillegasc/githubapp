@@ -47,11 +47,21 @@ class CommitHeader extends StatelessWidget {
               height: responsive.inchR(2.5),
             ),
             Text(
-              'github-app',
+              'githubapp',
               style: TextStyle(
                   color: AppColors.white100,
                   fontWeight: FontWeight.w700,
                   fontSize: responsive.inchR(2.8)),
+            ),
+            SizedBox(
+              height: responsive.inchR(2.5),
+            ),
+            Text(
+              'Commits',
+              style: TextStyle(
+                  color: AppColors.grey50,
+                  fontWeight: FontWeight.w600,
+                  fontSize: responsive.inchR(2.2)),
             ),
           ],
         ),
