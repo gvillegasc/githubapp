@@ -2,18 +2,25 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:githubapp/core/error/failures.dart';
 import 'package:githubapp/domain/models/commit.dart';
+import 'package:githubapp/domain/repository/github_repository.dart';
 import 'package:githubapp/domain/usecases/get_commits.dart';
 import 'package:githubapp/domain/usecases/usecase.dart';
 import 'package:mocktail/mocktail.dart';
+// import 'package:mockito/annotations.dart';
+// import 'package:mockito/mockito.dart';
 
-import '../../mocks/repositories_mock.dart';
+// import 'get_commit_test.mocks.dart';
+
+// @GenerateMocks([GithubRepository])
+
+class MockGithubRepository extends Mock implements GithubRepository {}
 
 void main() {
-  late GithubRepositoryMock githubRepository;
+  late MockGithubRepository githubRepository;
   late GetCommits getCommits;
 
   setUp(() {
-    githubRepository = GithubRepositoryMock();
+    githubRepository = MockGithubRepository();
     getCommits = GetCommits(githubRepository);
   });
 
