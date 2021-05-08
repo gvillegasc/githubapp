@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:githubapp/core/app_colors.dart';
 import 'package:githubapp/presentation/blocs/commit_bloc.dart';
+import 'package:githubapp/presentation/ui/commit/widgets/commit_item.dart';
 import 'package:githubapp/presentation/ui/widgets/sliver_loading.dart';
 import 'package:provider/provider.dart';
 
@@ -27,12 +27,7 @@ class _CommitListState extends State<CommitList> {
           case CommitState.loaded:
             return SliverList(
               delegate: SliverChildBuilderDelegate(
-                  (_, int i) => Container(
-                        child: Text(
-                          bloc.commits[i].commit.author.name,
-                          style: TextStyle(color: AppColors.white100),
-                        ),
-                      ),
+                  (_, int i) => CommitItem(commit: bloc.commits[i]),
                   childCount: bloc.commits.length),
             );
           default:
