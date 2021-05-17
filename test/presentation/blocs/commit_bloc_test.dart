@@ -9,41 +9,6 @@ import 'package:mocktail/mocktail.dart';
 
 class MockGetCommits extends Mock implements GetCommits {}
 
-// void main() {
-//   late MockGetCommits getCommits;
-//   late CommitBloc commitBloc;
-
-//   setUp(() {
-//     getCommits = MockGetCommits();
-//     commitBloc = CommitBloc(getCommits: getCommits);
-//   });
-
-//   tearDown(() {
-//     commitBloc.close();
-//   });
-
-//   group('Commit Bloc', () {
-//     test('should get commit from use case', () async {
-//       final List<Commit> commits = [];
-
-//       when(() => getCommits(NoParams()))
-//           .thenAnswer((_) async => Right(commits));
-
-//       final expected = [
-//         // CommitInitial(),
-//         Loading(),
-//         Loaded(commits: commits),
-//       ];
-//       commitBloc.add(OnGetCommits());
-
-//       expectLater(commitBloc.state, equals(Right(commits)));
-//       // expectLater(commitBloc, emitsInOrder(expected));
-//       // expectLater(commitBloc.state, emitsInOrder(expected)).then<void>(
-//       //     (_) => verify(() => commitBloc.getCommits(NoParams())).called(1));
-//     });
-//   });
-// }
-
 void main() {
   late MockGetCommits getCommits;
   late CommitBloc commitBloc;
