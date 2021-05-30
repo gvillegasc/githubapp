@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:githubapp/core/app_colors.dart';
 
 class SliverLoading extends StatelessWidget {
   SliverLoading({Key? key}) : super(key: key);
@@ -17,7 +18,9 @@ class SliverLoading extends StatelessWidget {
                       .copyWith(brightness: Brightness.dark),
                   child: const CupertinoActivityIndicator(),
                 )
-              : const CircularProgressIndicator(),
+              : CircularProgressIndicator(
+                  color: AppColors.white100.withOpacity(.5),
+                ),
         ),
       ),
     );

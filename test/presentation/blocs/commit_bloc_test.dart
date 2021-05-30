@@ -1,43 +1,59 @@
 import 'package:dartz/dartz.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:githubapp/core/error/failures.dart';
+import 'package:githubapp/domain/entities/no_params.dart';
 import 'package:githubapp/domain/models/commit.dart';
-import 'package:githubapp/domain/usecases/get_commits.dart';
-import 'package:githubapp/domain/usecases/usecase.dart';
-import 'package:githubapp/presentation/blocs/commit_bloc.dart';
+import 'package:githubapp/domain/use_cases/get_commits.dart';
+import 'package:githubapp/presentation/blocs/commit_bloc/commit_bloc.dart';
 import 'package:mocktail/mocktail.dart';
 
 class MockGetCommits extends Mock implements GetCommits {}
 
 void main() {
   late MockGetCommits getCommits;
-  late CommitBloc commitBloc;
+  late CommitBloc bloc;
 
   setUp(() {
     getCommits = MockGetCommits();
-    commitBloc = CommitBloc(getCommits: getCommits);
+    bloc = CommitBloc(getCommits: getCommits);
+  });
+
+  test('initialState should be CommitInitial', () {
+    expect(bloc.state, equals(CommitInitial()));
   });
 
   group('Commit Bloc', () {
-    test('should get commits from use case', () async {
+    test(
+        'should emit [LoadingCommits, LoadedCommits] when data is gotten successfully',
+        () async {
       final List<Commit> commitsList = [];
 
       when(() => getCommits(NoParams()))
           .thenAnswer((_) async => Right(commitsList));
 
-      await commitBloc.loadCommits();
+      final expected = [
+        LoadingCommits(),
+        LoadedCommits(commits: commitsList),
+      ];
 
-      expect(commitBloc.commitState, equals(CommitState.loaded));
-      expect(commitBloc.commits, equals(commitsList));
+      expectLater(bloc.stream, emitsInOrder(expected));
+
+      bloc.add(LoadCommits());
     });
 
-    test('should error service from use case', () async {
+    test('should emit [LoadingCommits, Error] when getting data fails',
+        () async {
       when(() => getCommits(NoParams()))
           .thenAnswer((_) async => Left(ServerFailure()));
 
-      await commitBloc.loadCommits();
+      final expected = [
+        LoadingCommits(),
+        Error(),
+      ];
 
-      expect(commitBloc.commitState, equals(CommitState.errorService));
+      expectLater(bloc.stream, emitsInOrder(expected));
+
+      bloc.add(LoadCommits());
     });
   });
 }

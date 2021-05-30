@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:githubapp/domain/entities/commit_entity.dart';
+
 Commit commitFromJson(String str) => Commit.fromJson(json.decode(str));
 
 String commitToJson(Commit data) => json.encode(data.toJson());
@@ -16,7 +18,7 @@ class CommitMapper {
   List<Commit> items = [];
 }
 
-class Commit {
+class Commit extends CommitEntity {
   factory Commit.fromJson(Map<String, dynamic> json) => Commit(
         sha: json['sha'],
         nodeId: json['node_id'],
@@ -30,26 +32,33 @@ class Commit {
       );
 
   Commit({
+    required this.commit,
+    required this.author,
+    required this.committer,
     required this.sha,
     required this.nodeId,
-    required this.commit,
     required this.url,
     required this.htmlUrl,
     required this.commentsUrl,
-    required this.author,
-    required this.committer,
     required this.parents,
-  });
+  }) : super(
+          sha: sha,
+          nodeId: nodeId,
+          url: url,
+          htmlUrl: htmlUrl,
+          commentsUrl: commentsUrl,
+          parents: parents,
+        );
 
-  String sha;
-  String nodeId;
-  CommitClass commit;
-  String url;
-  String htmlUrl;
-  String commentsUrl;
-  CommitAuthor author;
-  CommitAuthor committer;
-  List<dynamic> parents;
+  final CommitClass commit;
+  final CommitAuthor author;
+  final CommitAuthor committer;
+  final String sha;
+  final String nodeId;
+  final String url;
+  final String htmlUrl;
+  final String commentsUrl;
+  final List<dynamic> parents;
 
   Map<String, dynamic> toJson() => {
         'sha': sha,

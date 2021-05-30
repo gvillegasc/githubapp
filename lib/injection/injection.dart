@@ -1,34 +1,34 @@
 import 'package:get_it/get_it.dart';
+import 'package:githubapp/presentation/blocs/commit_bloc/commit_bloc.dart';
 import 'package:http/http.dart' as http;
-import 'package:githubapp/data/data_source/remote_data_source.dart';
-import 'package:githubapp/data/repository/github_repository_impl.dart';
-import 'package:githubapp/domain/repository/github_repository.dart';
-import 'package:githubapp/domain/usecases/get_commits.dart';
-import 'package:githubapp/presentation/blocs/commit_bloc.dart';
+import 'package:githubapp/data/data_sources/remote_data_source.dart';
+import 'package:githubapp/data/repository/commit_repository_impl.dart';
+import 'package:githubapp/domain/repository/commit_repository.dart';
+import 'package:githubapp/domain/use_cases/get_commits.dart';
 
-final sl = GetIt.instance;
+final getIt = GetIt.instance;
 
 Future<void> init() async {
   // Blocs
-  sl.registerFactory(
+  getIt.registerFactory(
     () => CommitBloc(
-      getCommits: sl<GetCommits>(),
+      getCommits: getIt<GetCommits>(),
     ),
   );
 
   // Use cases
-  sl.registerLazySingleton(() => GetCommits(sl<GithubRepository>()));
+  getIt.registerLazySingleton(() => GetCommits(getIt<CommitRepository>()));
 
   // Repository
-  sl.registerLazySingleton<GithubRepository>(
-    () => GithubRepositoryImpl(remoteDataSource: sl<RemoteDataSource>()),
+  getIt.registerLazySingleton<CommitRepository>(
+    () => CommitRepositoryImpl(remoteDataSource: getIt<RemoteDataSource>()),
   );
 
   // Datasource
-  sl.registerLazySingleton<RemoteDataSource>(
-    () => RemoteDataSourceImpl(client: sl()),
+  getIt.registerLazySingleton<RemoteDataSource>(
+    () => RemoteDataSourceImpl(client: getIt()),
   );
 
   // External
-  sl.registerLazySingleton(() => http.Client());
+  getIt.registerLazySingleton(() => http.Client());
 }

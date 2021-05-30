@@ -42,7 +42,7 @@ class CommitHeader extends StatelessWidget {
                     style: TextStyle(
                         color: AppColors.white100.withOpacity(.8),
                         fontWeight: FontWeight.w400,
-                        fontSize: responsive.inchR(2))),
+                        fontSize: responsive.spR(13))),
               ],
             ),
             SizedBox(
@@ -53,7 +53,7 @@ class CommitHeader extends StatelessWidget {
               style: TextStyle(
                   color: AppColors.white100,
                   fontWeight: FontWeight.w700,
-                  fontSize: responsive.inchR(2.8)),
+                  fontSize: responsive.spR(18)),
             ),
             SizedBox(
               height: responsive.inchR(2.5),
@@ -63,7 +63,7 @@ class CommitHeader extends StatelessWidget {
               style: TextStyle(
                   color: AppColors.grey50,
                   fontWeight: FontWeight.w600,
-                  fontSize: responsive.inchR(2.2)),
+                  fontSize: responsive.spR(15)),
             ),
           ],
         ),

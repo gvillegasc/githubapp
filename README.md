@@ -1,6 +1,6 @@
 # Githubapp
 
-Githubapp is a mobile application for a technical test on flutter.
+Githubapp is a mobile application for show my flutter skills, this project use Clean Architecture, Bloc, Injection dependencies, some unit test and more.
 
 ## Getting Started
 
