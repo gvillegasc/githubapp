@@ -38,9 +38,14 @@ class Responsive {
   }
 
   double spR(double percent) {
+    double xp;
     if (orientation == Orientation.landscape) {
-      return (height / 3) * percent / 100;
+      xp = (height / 3) * percent / 100;
+    } else {
+      xp = (width / 3) * percent / 100;
     }
-    return (width / 3) * percent / 100;
+    final x = height / width;
+    // return xp - xp * 0.08;
+    return x <= 1.8 ? xp - xp * 0.08 : xp;
   }
 }

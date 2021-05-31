@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:githubapp/core/app_colors.dart';
 import 'package:githubapp/injection/injection.dart';
 import 'package:githubapp/presentation/blocs/commit_bloc/commit_bloc.dart';
 import 'package:githubapp/presentation/ui/commit/widgets/commit_header.dart';
@@ -18,7 +17,6 @@ class CommitPage extends StatelessWidget {
         child: AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light,
           child: Scaffold(
-            backgroundColor: AppColors.black70,
             body: SafeArea(
               bottom: false,
               child: InvisibleScroll(

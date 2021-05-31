@@ -1,7 +1,6 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
-import 'package:githubapp/core/app_colors.dart';
 import 'package:githubapp/core/responsive.dart';
 import 'package:githubapp/core/utils/commit_date.dart';
 import 'package:githubapp/domain/models/commit.dart';
@@ -15,13 +14,14 @@ class CommitItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
+    final appTheme = Theme.of(context);
     return FadeIn(
       child: Material(
         color: Colors.transparent,
         child: InkWell(
-          focusColor: AppColors.white100,
-          hoverColor: AppColors.white100,
-          highlightColor: AppColors.white100.withOpacity(.2),
+          focusColor: appTheme.primaryColor,
+          hoverColor: appTheme.primaryColor,
+          highlightColor: appTheme.primaryColor.withOpacity(.2),
           onTap: () async {
             await canLaunch(commit.htmlUrl)
                 ? await launch(commit.htmlUrl)
@@ -49,7 +49,7 @@ class CommitItem extends StatelessWidget {
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                                color: AppColors.white100,
+                                color: appTheme.primaryColor,
                                 fontWeight: FontWeight.w500,
                                 fontSize: responsive.spR(12.5)),
                           ),
@@ -74,12 +74,12 @@ class CommitItem extends StatelessWidget {
                               SizedBox(width: responsive.inchR(.5)),
                               Text(commit.committer.login,
                                   style: TextStyle(
-                                      color: AppColors.white100,
+                                      color: appTheme.primaryColor,
                                       fontWeight: FontWeight.w500,
                                       fontSize: responsive.spR(11))),
                               Text(' authored',
                                   style: TextStyle(
-                                      color: AppColors.grey50,
+                                      color: appTheme.accentColor,
                                       fontWeight: FontWeight.w400,
                                       fontSize: responsive.spR(11)))
                             ],
@@ -97,7 +97,7 @@ class CommitItem extends StatelessWidget {
                         textAlign: TextAlign.end,
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
-                            color: AppColors.grey50,
+                            color: appTheme.primaryColor.withOpacity(.7),
                             fontWeight: FontWeight.w400,
                             fontSize: responsive.spR(11)),
                       ),
@@ -108,7 +108,7 @@ class CommitItem extends StatelessWidget {
                   height: responsive.inchR(1.5),
                 ),
                 Divider(
-                  color: AppColors.white100.withOpacity(.2),
+                  color: appTheme.primaryColor.withOpacity(.2),
                   height: 1,
                 )
               ],
