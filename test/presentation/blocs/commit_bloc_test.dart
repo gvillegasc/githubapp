@@ -22,7 +22,7 @@ void main() {
     expect(bloc.state, equals(CommitInitial()));
   });
 
-  group('Commit Bloc', () {
+  group('GetCommits', () {
     test(
         'should emit [LoadingCommits, LoadedCommits] when data is gotten successfully',
         () async {
