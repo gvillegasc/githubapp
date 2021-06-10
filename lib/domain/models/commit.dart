@@ -31,7 +31,7 @@ class Commit extends CommitEntity {
         parents: List<dynamic>.from(json['parents'].map((x) => x)),
       );
 
-  Commit({
+  const Commit({
     required this.commit,
     required this.author,
     required this.committer,

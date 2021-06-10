@@ -7,6 +7,10 @@ import 'package:githubapp/presentation/ui/widgets/sliver_loading.dart';
 import 'package:provider/provider.dart';
 
 class CommitList extends StatefulWidget {
+  const CommitList({
+    Key? key,
+  }) : super(key: key);
+
   @override
   _CommitListState createState() => _CommitListState();
 }
@@ -23,7 +27,7 @@ class _CommitListState extends State<CommitList> {
   Widget build(BuildContext context) {
     return BlocBuilder<CommitBloc, CommitState>(builder: (context, state) {
       if (state is LoadingCommits) {
-        return SliverLoading();
+        return const SliverLoading();
       } else if (state is LoadedCommits) {
         return SliverList(
           delegate: SliverChildBuilderDelegate(
@@ -38,7 +42,7 @@ class _CommitListState extends State<CommitList> {
               childCount: state.commits.length),
         );
       } else {
-        return CommitError();
+        return const CommitError();
       }
     });
   }

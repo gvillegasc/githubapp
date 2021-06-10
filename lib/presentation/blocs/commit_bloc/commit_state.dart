@@ -11,9 +11,9 @@ abstract class CommitState extends Equatable {
 class CommitInitial extends CommitState {}
 
 class LoadedCommits extends CommitState {
-  final List<Commit> commits;
+  const LoadedCommits({required this.commits});
 
-  LoadedCommits({required this.commits});
+  final List<Commit> commits;
 
   @override
   List<Object> get props => [commits];

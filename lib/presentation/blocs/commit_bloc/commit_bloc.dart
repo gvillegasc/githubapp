@@ -20,7 +20,7 @@ class CommitBloc extends Bloc<CommitEvent, CommitState> {
     CommitEvent event,
   ) async* {
     if (event is LoadCommits) {
-      yield* this._mapOnGetCommits(event);
+      yield* _mapOnGetCommits(event);
     }
   }
 

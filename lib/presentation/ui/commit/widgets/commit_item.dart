@@ -1,9 +1,11 @@
 import 'package:animate_do/animate_do.dart';
 import 'package:extended_image/extended_image.dart';
 import 'package:flutter/material.dart';
+import 'package:githubapp/core/language/translator.dart';
+import 'package:githubapp/core/language/translator/app_translator.dart';
 import 'package:githubapp/core/responsive.dart';
-import 'package:githubapp/core/utils/commit_date.dart';
 import 'package:githubapp/domain/models/commit.dart';
+import 'package:githubapp/presentation/ui/widgets/text_paragraph_regular.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class CommitItem extends StatelessWidget {
@@ -11,10 +13,29 @@ class CommitItem extends StatelessWidget {
 
   final Commit commit;
 
+  String _commitDate(String commitDate, AppTranslator translator) {
+    try {
+      final different = DateTime.now().difference(DateTime.parse(commitDate));
+      final differentHours = different.inHours;
+      if (different.inMinutes <= 0) {
+        return '${different.inSeconds} ${translator.textSeconds}';
+      } else if (differentHours <= 0) {
+        return '${different.inMinutes} ${translator.textMinutes}';
+      } else if (differentHours <= 24) {
+        return '${different.inHours} ${translator.textHours}';
+      } else {
+        return '${different.inDays} ${translator.textDays}';
+      }
+    } catch (e) {
+      return '';
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final responsive = Responsive.of(context);
     final appTheme = Theme.of(context);
+    final translator = Translator.findTranslator(context);
     return FadeIn(
       child: Material(
         color: Colors.transparent,
@@ -39,7 +60,7 @@ class CommitItem extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Container(
+                    SizedBox(
                       width: responsive.widthR(70),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -72,16 +93,16 @@ class CommitItem extends StatelessWidget {
                                 ),
                               ),
                               SizedBox(width: responsive.inchR(.5)),
-                              Text(commit.committer.login,
-                                  style: TextStyle(
-                                      color: appTheme.primaryColor,
-                                      fontWeight: FontWeight.w500,
-                                      fontSize: responsive.spR(11))),
-                              Text(' authored',
-                                  style: TextStyle(
-                                      color: appTheme.accentColor,
-                                      fontWeight: FontWeight.w400,
-                                      fontSize: responsive.spR(11)))
+                              TextParagraphRegular(
+                                text: commit.committer.login,
+                                color: appTheme.primaryColor,
+                              ),
+                              TextParagraphRegular(
+                                key: Key(translator.textAuthored),
+                                text: ' ${translator.textAuthored}',
+                                color: appTheme.accentColor,
+                                fontWeight: FontWeight.w400,
+                              ),
                             ],
                           )
                         ],
@@ -90,16 +111,13 @@ class CommitItem extends StatelessWidget {
                     Container(
                       width: responsive.widthR(20),
                       alignment: Alignment.centerRight,
-                      child: Text(
-                        commitDate(commit.commit.committer.date,
-                            DateTime.now().toString()),
-                        maxLines: 1,
+                      child: TextParagraphRegular(
+                        text: _commitDate(
+                            commit.commit.committer.date, translator),
                         textAlign: TextAlign.end,
                         overflow: TextOverflow.ellipsis,
-                        style: TextStyle(
-                            color: appTheme.primaryColor.withOpacity(.7),
-                            fontWeight: FontWeight.w400,
-                            fontSize: responsive.spR(11)),
+                        fontWeight: FontWeight.w400,
+                        color: appTheme.primaryColor.withOpacity(.7),
                       ),
                     )
                   ],

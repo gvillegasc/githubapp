@@ -1,7 +1,7 @@
 import 'package:equatable/equatable.dart';
 
 class CommitEntity extends Equatable {
-  CommitEntity({
+  const CommitEntity({
     required this.sha,
     required this.nodeId,
     required this.url,

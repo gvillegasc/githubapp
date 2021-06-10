@@ -24,7 +24,7 @@ void main() {
 
   group('GetCommits', () {
     test(
-        'should emit [LoadingCommits, LoadedCommits] when data is gotten successfully',
+        '''should emit [LoadingCommits, LoadedCommits] when data is gotten successfully''',
         () async {
       final List<Commit> commitsList = [];
 

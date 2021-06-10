@@ -8,13 +8,13 @@ import 'package:githubapp/presentation/ui/commit/widgets/commit_list.dart';
 import 'package:githubapp/presentation/ui/widgets/invisible_scroll.dart';
 
 class CommitPage extends StatelessWidget {
-  CommitPage({Key? key}) : super(key: key);
+  const CommitPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
         create: (_) => getIt<CommitBloc>(),
-        child: AnnotatedRegion<SystemUiOverlayStyle>(
+        child: const AnnotatedRegion<SystemUiOverlayStyle>(
           value: SystemUiOverlayStyle.light,
           child: Scaffold(
             body: SafeArea(

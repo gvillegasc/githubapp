@@ -8,6 +8,7 @@ abstract class ThemeEvent extends Equatable {
 }
 
 class ChangeTheme extends ThemeEvent {
+  const ChangeTheme(this.isDark);
+
   final bool isDark;
-  ChangeTheme(this.isDark);
 }

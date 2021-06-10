@@ -8,14 +8,14 @@ part 'theme_event.dart';
 part 'theme_state.dart';
 
 class ThemeBloc extends Bloc<ThemeEvent, ThemeState> {
-  ThemeBloc() : super(ThemeState());
+  ThemeBloc() : super(const ThemeState());
 
   @override
   Stream<ThemeState> mapEventToState(
     ThemeEvent event,
   ) async* {
     if (event is ChangeTheme) {
-      yield this.state.copyWith(isDark: event.isDark);
+      yield state.copyWith(isDark: event.isDark);
     }
   }
 }

@@ -2,11 +2,11 @@ part of 'theme_bloc.dart';
 
 @immutable
 class ThemeState {
-  final bool isDark;
-
-  ThemeState({
+  const ThemeState({
     this.isDark = true,
   });
+
+  final bool isDark;
 
   ThemeState copyWith({bool isDark = true}) => ThemeState(
         isDark: isDark,
