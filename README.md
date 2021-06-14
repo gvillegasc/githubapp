@@ -37,14 +37,28 @@ flutter run
 
 <table>
     <tr>
+        <th>App</th>
         <th>Commit Page Light</th>
         <th>Commit Page Dark</th>
+    </tr>
+	<tr>
+        <td><img src="./readme-images/github.gif" alt="commit-page-app" width="200"/></td>
+        <td><img src="./readme-images/commit-page-light.jpg" alt="commit-page-light" width="200"/></td>
+        <td><img src="./readme-images/commit-page-dark.jpg" alt="commit-page-dark" width="200"/></td>
+      
+	</tr>
+</table>
+
+<table>
+    <tr>
+        <th>Commit Page Spanish</th>
+        <th>Commit Page English</th>
         <th>See changes</th>
     </tr>
 	<tr>
-        <td><img src="./readme-images/commit-page-light.jpeg" alt="commit-page" width="200"/></td>
-        <td><img src="./readme-images/commit-page-dark.jpeg" alt="commit-page" width="200"/></td>
-        <td><img src="./readme-images/see-changes.jpeg" alt="see-changes" width="200"/></td>
+        <td><img src="./readme-images/commit-page-dark.jpg" alt="commit-page-dark" width="200"/></td>
+        <td><img src="./readme-images/commit-page-en.jpg" alt="commit-page-en" width="200"/></td>
+        <td><img src="./readme-images/commit-page-select.jpg" alt="commit-page-select" width="200"/></td>
 	</tr>
 </table>
 

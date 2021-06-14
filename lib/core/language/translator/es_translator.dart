@@ -7,7 +7,7 @@ class EsTranslator extends AppTranslator {
   String get textAuthored => 'escritor';
 
   @override
-  String get textCommits => 'Comentarios';
+  String get textCommits => 'Compromisos';
 
   @override
   String get textDays => 'dias';

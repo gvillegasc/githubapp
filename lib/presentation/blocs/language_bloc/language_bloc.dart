@@ -24,18 +24,30 @@ class LanguageBloc extends Bloc<LanguageEvent, LanguageState> {
     LanguageEvent event,
   ) async* {
     if (event is LoadLanguage) {
-      final failureOrLanguage = await getLanguage(NoParams());
-      yield failureOrLanguage.fold(
-          (failure) => state.copyWith(language: state.language),
-          (code) => state.copyWith(
-              language: AppLanguages.singleton().findByCode(code)));
+      yield* _mapOnLoadLanguage(event);
     } else if (event is ChangeLanguage) {
-      final failureOrLanguage = await saveLanguage(
-          SaveLanguageParams(languageCode: event.languageEntity.code));
-      yield failureOrLanguage.fold(
-          (failure) => state.copyWith(language: state.language),
-          (code) => state.copyWith(
-              language: AppLanguages.singleton().findByCode(code)));
+      yield* _mapOnChangeLanguage(event);
     }
+  }
+
+  Stream<LanguageState> _mapOnLoadLanguage(
+    LoadLanguage event,
+  ) async* {
+    final failureOrLanguage = await getLanguage(NoParams());
+    yield failureOrLanguage.fold(
+        (failure) => state.copyWith(language: state.language),
+        (code) => state.copyWith(
+            language: AppLanguages.singleton().findByCode(code)));
+  }
+
+  Stream<LanguageState> _mapOnChangeLanguage(
+    ChangeLanguage event,
+  ) async* {
+    final failureOrLanguage = await saveLanguage(
+        SaveLanguageParams(languageCode: event.languageEntity.code));
+    yield failureOrLanguage.fold(
+        (failure) => state.copyWith(language: state.language),
+        (code) => state.copyWith(
+            language: AppLanguages.singleton().findByCode(code)));
   }
 }
