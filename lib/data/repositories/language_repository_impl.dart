@@ -2,7 +2,7 @@ import 'package:githubapp/core/error/exceptions.dart';
 import 'package:githubapp/core/error/failures.dart';
 import 'package:dartz/dartz.dart';
 import 'package:githubapp/data/data_sources/local_data_source.dart';
-import 'package:githubapp/domain/repository/language_repository.dart';
+import 'package:githubapp/domain/repositories/language_repository.dart';
 
 class LanguageRepositoryImpl implements LanguageRepository {
   LanguageRepositoryImpl({

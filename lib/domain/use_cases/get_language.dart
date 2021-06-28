@@ -1,7 +1,7 @@
 import 'package:dartz/dartz.dart';
 import 'package:githubapp/core/error/failures.dart';
 import 'package:githubapp/domain/entities/no_params.dart';
-import 'package:githubapp/domain/repository/language_repository.dart';
+import 'package:githubapp/domain/repositories/language_repository.dart';
 import 'package:githubapp/domain/use_cases/use_case.dart';
 
 class GetLanguage implements UseCase<String, NoParams> {
