@@ -20,7 +20,7 @@ class _CommitListState extends State<CommitList> {
   void initState() {
     super.initState();
     final bloc = context.read<CommitBloc>();
-    bloc.add(LoadCommits());
+    bloc.add(OnGetCommits());
   }
 
   @override

@@ -1,7 +1,7 @@
 import 'dart:convert';
 
 import 'package:githubapp/core/enviroment.dart';
-import 'package:githubapp/core/error/failures.dart';
+import 'package:githubapp/core/error/exceptions.dart';
 import 'package:http/http.dart' as http;
 import 'package:githubapp/domain/models/commit.dart';
 import 'package:http/http.dart';
@@ -32,10 +32,10 @@ class RemoteDataSourceImpl implements RemoteDataSource {
         final users = CommitMapper.fromJsonList(decodedData).items;
         return users;
       } else {
-        throw ServerFailure();
+        throw ServerException();
       }
-    } catch (e) {
-      throw ServerFailure();
+    } on ServerException {
+      throw ServerException();
     }
   }
 

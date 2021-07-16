@@ -8,4 +8,4 @@ abstract class CommitEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadCommits extends CommitEvent {}
+class OnGetCommits extends CommitEvent {}

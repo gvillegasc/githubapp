@@ -50,7 +50,7 @@ class __InitState extends State<_Init> {
     final themeBloc = context.read<ThemeBloc>();
     final languageBloc = context.read<LanguageBloc>();
     themeBloc.add(ChangeTheme((brightness == Brightness.dark) ? true : false));
-    languageBloc.add(LoadLanguage());
+    languageBloc.add(OnGetLanguage());
   }
 
   @override

@@ -19,13 +19,13 @@ class CommitBloc extends Bloc<CommitEvent, CommitState> {
   Stream<CommitState> mapEventToState(
     CommitEvent event,
   ) async* {
-    if (event is LoadCommits) {
+    if (event is OnGetCommits) {
       yield* _mapOnGetCommits(event);
     }
   }
 
   Stream<CommitState> _mapOnGetCommits(
-    LoadCommits event,
+    OnGetCommits event,
   ) async* {
     yield LoadingCommits();
     final failureOrCommits = await getCommits(NoParams());

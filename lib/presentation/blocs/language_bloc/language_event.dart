@@ -7,10 +7,10 @@ abstract class LanguageEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadLanguage extends LanguageEvent {}
+class OnGetLanguage extends LanguageEvent {}
 
-class ChangeLanguage extends LanguageEvent {
-  const ChangeLanguage(this.languageEntity);
+class OnSaveLanguage extends LanguageEvent {
+  const OnSaveLanguage(this.languageEntity);
 
   final LanguageEntity languageEntity;
 }

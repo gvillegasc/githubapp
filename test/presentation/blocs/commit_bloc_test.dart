@@ -38,7 +38,7 @@ void main() {
 
       expectLater(bloc.stream, emitsInOrder(expected));
 
-      bloc.add(LoadCommits());
+      bloc.add(OnGetCommits());
     });
 
     test('should emit [LoadingCommits, Error] when getting data fails',
@@ -53,7 +53,7 @@ void main() {
 
       expectLater(bloc.stream, emitsInOrder(expected));
 
-      bloc.add(LoadCommits());
+      bloc.add(OnGetCommits());
     });
   });
 }

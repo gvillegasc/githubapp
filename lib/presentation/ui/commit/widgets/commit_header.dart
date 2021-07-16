@@ -1,4 +1,4 @@
-import 'package:extended_image/extended_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -44,10 +44,10 @@ class CommitHeader extends StatelessWidget {
                         width: responsive.inchR(4.5),
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(7)),
-                        child: ExtendedImage.network(
-                          'https://avatars.githubusercontent.com/u/40042359?v=4',
+                        child: CachedNetworkImage(
+                          imageUrl:
+                              'https://avatars.githubusercontent.com/u/40042359?v=4',
                           fit: BoxFit.cover,
-                          cache: true,
                         ),
                       ),
                     ),
@@ -110,7 +110,7 @@ class CommitHeader extends StatelessWidget {
                                                 .createLanguages()[0];
                                     context
                                         .read<LanguageBloc>()
-                                        .add(ChangeLanguage(languageEntity));
+                                        .add(OnSaveLanguage(languageEntity));
                                   });
                             },
                           ),

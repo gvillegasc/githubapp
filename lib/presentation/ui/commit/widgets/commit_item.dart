@@ -1,5 +1,5 @@
 import 'package:animate_do/animate_do.dart';
-import 'package:extended_image/extended_image.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:githubapp/core/language/translator.dart';
 import 'package:githubapp/core/language/translator/app_translator.dart';
@@ -85,10 +85,9 @@ class CommitItem extends StatelessWidget {
                                   width: responsive.inchR(2.5),
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(50)),
-                                  child: ExtendedImage.network(
-                                    commit.committer.avatarUrl,
+                                  child: CachedNetworkImage(
+                                    imageUrl: commit.committer.avatarUrl,
                                     fit: BoxFit.cover,
-                                    cache: true,
                                   ),
                                 ),
                               ),
