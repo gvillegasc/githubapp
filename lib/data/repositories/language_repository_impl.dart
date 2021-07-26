@@ -16,7 +16,7 @@ class LanguageRepositoryImpl implements LanguageRepository {
     try {
       final language = await localDataSource.getLanguage();
       return Right(language);
-    } catch (e) {
+    } on CacheException {
       return Left(CacheFailure());
     }
   }

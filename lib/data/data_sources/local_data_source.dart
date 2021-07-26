@@ -1,4 +1,3 @@
-import 'package:githubapp/core/error/exceptions.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Preferences {
@@ -18,22 +17,14 @@ class LocalDataSourceImpl extends LocalDataSource {
 
   @override
   Future<String> saveLanguage(String languageCode) async {
-    try {
-      await sharedPreferences.setString(Preferences.prefLanguage, languageCode);
-      return languageCode;
-    } on CacheException {
-      throw CacheException();
-    }
+    await sharedPreferences.setString(Preferences.prefLanguage, languageCode);
+    return languageCode;
   }
 
   @override
   Future<String> getLanguage() async {
-    try {
-      final language =
-          sharedPreferences.getString(Preferences.prefLanguage) ?? 'es';
-      return language;
-    } on CacheException {
-      throw CacheException();
-    }
+    final language =
+        sharedPreferences.getString(Preferences.prefLanguage) ?? 'es';
+    return language;
   }
 }

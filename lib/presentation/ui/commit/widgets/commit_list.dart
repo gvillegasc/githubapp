@@ -25,25 +25,27 @@ class _CommitListState extends State<CommitList> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CommitBloc, CommitState>(builder: (context, state) {
-      if (state is LoadingCommits) {
-        return const SliverLoading();
-      } else if (state is LoadedCommits) {
-        return SliverList(
-          delegate: SliverChildBuilderDelegate(
-              (_, int i) => (i == state.commits.length - 1)
-                  ? SafeArea(
-                      top: false,
-                      child: Container(
-                          margin: const EdgeInsets.only(bottom: 30),
-                          child: CommitItem(commit: state.commits[i])),
-                    )
-                  : CommitItem(commit: state.commits[i]),
-              childCount: state.commits.length),
-        );
-      } else {
-        return const CommitError();
-      }
-    });
+    return BlocBuilder<CommitBloc, CommitState>(
+      builder: (context, state) {
+        if (state is LoadingCommits) {
+          return const SliverLoading();
+        } else if (state is LoadedCommits) {
+          return SliverList(
+            delegate: SliverChildBuilderDelegate(
+                (_, int i) => (i == state.commits.length - 1)
+                    ? SafeArea(
+                        top: false,
+                        child: Container(
+                            margin: const EdgeInsets.only(bottom: 30),
+                            child: CommitItem(commit: state.commits[i])),
+                      )
+                    : CommitItem(commit: state.commits[i]),
+                childCount: state.commits.length),
+          );
+        } else {
+          return const CommitError();
+        }
+      },
+    );
   }
 }

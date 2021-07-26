@@ -8,10 +8,11 @@ class InvisibleScroll extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return NotificationListener<OverscrollIndicatorNotification>(
-        onNotification: (OverscrollIndicatorNotification overscroll) {
-          overscroll.disallowGlow();
-          return true;
-        },
-        child: child);
+      onNotification: (OverscrollIndicatorNotification overscroll) {
+        overscroll.disallowGlow();
+        return true;
+      },
+      child: child,
+    );
   }
 }
